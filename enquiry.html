@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Page metadata -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Enquiry | WEDE PRINTS</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Main stylesheet -->
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- ======== NAVBAR ======== -->
+  <nav class="navbar">
+    <div class="container navbar__inner">
+      <a href="index.html" class="navbar__logo">WEDE <span>PRINTS</span></a>
+      <ul class="navbar__links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="enquiry.html" class="active">Enquiry</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ======== PAGE HERO ======== -->
+  <section class="page-hero">
+    <div class="container">
+      <h1 class="page-hero__title">Request a <span>Quote</span></h1>
+      <p class="page-hero__sub">Fill in your details and we'll get back to you within 24 hours</p>
+    </div>
+  </section>
+
+  <!-- ======== ENQUIRY FORM SECTION ======== -->
+  <section class="section">
+    <div class="container">
+      <div class="form-section">
+
+        <!-- Left info panel -->
+        <div class="form-info">
+          <span class="section__label">Before You Submit</span>
+          <h2 class="section__title" style="margin-bottom: 24px;">What happens next?</h2>
+
+          <div class="form-info__item">
+            <span class="form-info__icon">📋</span>
+            <div>
+              <p class="form-info__label">Step 1 — Submit Your Enquiry</p>
+              <p class="form-info__value">Fill in the form with your printing requirements and contact details.</p>
+            </div>
+          </div>
+
+          <div class="form-info__item">
+            <span class="form-info__icon">📞</span>
+            <div>
+              <p class="form-info__label">Step 2 — We Contact You</p>
+              <p class="form-info__value">Our team will review your enquiry and reach out within 24 hours with a personalised quote.</p>
+            </div>
+          </div>
+
+          <div class="form-info__item">
+            <span class="form-info__icon">🖨️</span>
+            <div>
+              <p class="form-info__label">Step 3 — We Print</p>
+              <p class="form-info__value">Once approved, your order goes into production. Typical turnaround is 2–5 business days.</p>
+            </div>
+          </div>
+
+          <div class="form-info__item">
+            <span class="form-info__icon">📦</span>
+            <div>
+              <p class="form-info__label">Step 4 — Collect or Deliver</p>
+              <p class="form-info__value">Collect from our Pretoria shop or arrange delivery to your door.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Enquiry form -->
+        <div>
+          <div class="form">
+
+            <!-- Personal details row -->
+            <div class="form__row">
+              <div class="form__group">
+                <label for="first-name">First Name *</label>
+                <input type="text" id="first-name" name="first-name" placeholder="Your first name" required />
+              </div>
+              <div class="form__group">
+                <label for="last-name">Last Name *</label>
+                <input type="text" id="last-name" name="last-name" placeholder="Your last name" required />
+              </div>
+            </div>
+
+            <!-- Contact details row -->
+            <div class="form__row">
+              <div class="form__group">
+                <label for="email">Email Address *</label>
+                <input type="email" id="email" name="email" placeholder="you@example.com" required />
+              </div>
+              <div class="form__group">
+                <label for="phone">Phone Number *</label>
+                <input type="tel" id="phone" name="phone" placeholder="07x xxx xxxx" required />
+              </div>
+            </div>
+
+            <!-- Service type -->
+            <div class="form__group">
+              <label for="service-type">Service Required *</label>
+              <select id="service-type" name="service-type" required>
+                <option value="" disabled selected>Select a service...</option>
+                <option value="commercial">Commercial Printing (Flyers, Brochures, Posters)</option>
+                <option value="tshirts">Custom T-Shirt Printing</option>
+                <option value="banners">Banners & Signage</option>
+                <option value="stationery">Business Stationery</option>
+                <option value="other">Other / Not Sure</option>
+              </select>
+            </div>
+
+            <!-- Quantity -->
+            <div class="form__group">
+              <label for="quantity">Estimated Quantity *</label>
+              <select id="quantity" name="quantity" required>
+                <option value="" disabled selected>Select quantity range...</option>
+                <option value="1-50">1 – 50 units</option>
+                <option value="51-100">51 – 100 units</option>
+                <option value="101-500">101 – 500 units</option>
+                <option value="500+">500+ units</option>
+                <option value="unsure">Not sure yet</option>
+              </select>
+            </div>
+
+            <!-- Deadline -->
+            <div class="form__group">
+              <label for="deadline">When do you need it by?</label>
+              <input type="date" id="deadline" name="deadline" />
+            </div>
+
+            <!-- Project description -->
+            <div class="form__group">
+              <label for="description">Project Description *</label>
+              <textarea
+                id="description"
+                name="description"
+                placeholder="Describe your project — what are you printing, what's it for, any specific requirements (size, colour, finish, etc.)?"
+                required
+              ></textarea>
+            </div>
+
+            <!-- Artwork note -->
+            <div class="form__group">
+              <label for="artwork">Do you have artwork ready?</label>
+              <select id="artwork" name="artwork">
+                <option value="" disabled selected>Select an option...</option>
+                <option value="yes-print-ready">Yes — print-ready file (PDF/AI/EPS)</option>
+                <option value="yes-needs-work">Yes — but needs adjustments</option>
+                <option value="no">No — I need design help</option>
+              </select>
+            </div>
+
+            <!-- Submit button -->
+            <button type="button" class="btn btn--primary" onclick="handleSubmit()">
+              Submit Enquiry
+            </button>
+
+          </div>
+
+          <!-- Success message (hidden by default, shown via JS) -->
+          <div id="success-message" style="display: none; margin-top: 24px; padding: 20px; background-color: #f0fdf4; border: 1px solid #86efac; border-radius: 8px;">
+            <p style="color: #166534; font-weight: 600; margin-bottom: 4px;">✅ Enquiry received!</p>
+            <p style="color: #166534; margin-bottom: 0;">Thanks for reaching out. We'll get back to you within 24 hours.</p>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======== FOOTER ======== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__inner">
+        <div>
+          <p class="footer__logo">WEDE <span>PRINTS</span></p>
+          <p class="footer__desc">
+            Affordable, high-quality printing solutions for businesses,
+            students, and events across Pretoria since 2019.
+          </p>
+        </div>
+        <div>
+          <p class="footer__heading">Quick Links</p>
+          <ul class="footer__links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="enquiry.html">Enquiry</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer__heading">Contact</p>
+          <ul class="footer__links">
+            <li>📍 123 Printing Ave, Pretoria</li>
+            <li>📞 012 345 6789</li>
+            <li>✉️ info@wedeprints.co.za</li>
+            <li>⏰ Mon–Fri: 8am–5pm</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p>&copy; 2025 WEDE PRINTS. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
