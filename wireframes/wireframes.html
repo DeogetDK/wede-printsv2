@@ -1,0 +1,945 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WEDE PRINTS — Low-Fidelity Wireframes</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #f0f0f0;
+      padding: 40px 20px;
+      color: #1a1a1a;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 1.4rem;
+      margin-bottom: 6px;
+      letter-spacing: 0.05em;
+    }
+
+    .doc-sub {
+      text-align: center;
+      font-size: 0.8rem;
+      color: #666;
+      margin-bottom: 48px;
+    }
+
+    /* Each page wireframe sits in its own container */
+    .page-wireframe {
+      background: #fff;
+      border: 2px solid #333;
+      width: 100%;
+      max-width: 860px;
+      margin: 0 auto 64px;
+    }
+
+    .page-label {
+      background: #333;
+      color: #fff;
+      font-size: 0.75rem;
+      font-weight: bold;
+      letter-spacing: 0.1em;
+      padding: 6px 14px;
+      text-transform: uppercase;
+    }
+
+    /* ── Generic wireframe blocks ── */
+    .wf-navbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: #222;
+      padding: 12px 20px;
+    }
+
+    .wf-logo {
+      width: 100px;
+      height: 18px;
+      background: #555;
+      border-radius: 2px;
+    }
+
+    .wf-nav-links {
+      display: flex;
+      gap: 12px;
+    }
+
+    .wf-nav-link {
+      width: 56px;
+      height: 10px;
+      background: #777;
+      border-radius: 2px;
+    }
+
+    .wf-nav-link.active {
+      background: #bbb;
+    }
+
+    /* Hero variants */
+    .wf-hero {
+      background: #2a2a2a;
+      padding: 32px 20px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      align-items: center;
+    }
+
+    .wf-hero-text > div {
+      height: 10px;
+      background: #555;
+      border-radius: 2px;
+      margin-bottom: 8px;
+    }
+
+    .wf-hero-text .tag  { width: 60%; background: #888; }
+    .wf-hero-text .h1a  { width: 80%; height: 22px; background: #aaa; }
+    .wf-hero-text .h1b  { width: 50%; height: 22px; background: #aaa; }
+    .wf-hero-text .desc { width: 90%; }
+    .wf-hero-text .desc2{ width: 75%; }
+
+    .wf-hero-buttons {
+      display: flex;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .wf-btn {
+      height: 28px;
+      width: 90px;
+      background: #888;
+      border-radius: 3px;
+    }
+
+    .wf-btn.outline {
+      background: transparent;
+      border: 2px solid #888;
+    }
+
+    .wf-hero-img {
+      background: #444;
+      height: 160px;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .wf-img-label {
+      font-size: 0.65rem;
+      color: #aaa;
+      letter-spacing: 0.05em;
+    }
+
+    /* Page hero (inner pages) */
+    .wf-page-hero {
+      background: #2a2a2a;
+      padding: 28px 20px;
+      text-align: center;
+    }
+
+    .wf-page-hero-title {
+      width: 260px;
+      height: 22px;
+      background: #888;
+      border-radius: 2px;
+      margin: 0 auto 10px;
+    }
+
+    .wf-page-hero-sub {
+      width: 180px;
+      height: 10px;
+      background: #555;
+      border-radius: 2px;
+      margin: 0 auto;
+    }
+
+    /* Section wrapper */
+    .wf-section {
+      padding: 24px 20px;
+      border-top: 1px solid #ddd;
+    }
+
+    .wf-section-label {
+      width: 80px;
+      height: 8px;
+      background: #ccc;
+      border-radius: 2px;
+      margin-bottom: 8px;
+    }
+
+    .wf-section-title {
+      width: 220px;
+      height: 18px;
+      background: #bbb;
+      border-radius: 2px;
+      margin-bottom: 6px;
+    }
+
+    .wf-section-sub {
+      width: 300px;
+      height: 9px;
+      background: #ddd;
+      border-radius: 2px;
+      margin-bottom: 20px;
+    }
+
+    /* Cards grid */
+    .wf-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+
+    .wf-cards-2col {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+
+    .wf-card {
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      padding: 14px;
+    }
+
+    .wf-card-icon {
+      width: 28px;
+      height: 28px;
+      background: #ddd;
+      border-radius: 50%;
+      margin-bottom: 8px;
+    }
+
+    .wf-card-title {
+      width: 80%;
+      height: 10px;
+      background: #bbb;
+      border-radius: 2px;
+      margin-bottom: 6px;
+    }
+
+    .wf-card-line {
+      height: 8px;
+      background: #e0e0e0;
+      border-radius: 2px;
+      margin-bottom: 4px;
+    }
+
+    /* About strip */
+    .wf-two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      align-items: center;
+    }
+
+    .wf-image-block {
+      background: #ddd;
+      height: 160px;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.65rem;
+      color: #888;
+      letter-spacing: 0.05em;
+    }
+
+    .wf-text-lines > div {
+      height: 9px;
+      background: #ddd;
+      border-radius: 2px;
+      margin-bottom: 6px;
+    }
+
+    .wf-stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 14px;
+    }
+
+    .wf-stat-num {
+      height: 20px;
+      background: #ccc;
+      border-radius: 2px;
+      margin-bottom: 4px;
+    }
+
+    .wf-stat-lbl {
+      height: 8px;
+      width: 70%;
+      background: #ddd;
+      border-radius: 2px;
+    }
+
+    /* CTA banner */
+    .wf-cta {
+      background: #e8e8e8;
+      padding: 24px 20px;
+      text-align: center;
+      border-top: 1px solid #ddd;
+    }
+
+    .wf-cta-title {
+      width: 240px;
+      height: 18px;
+      background: #bbb;
+      border-radius: 2px;
+      margin: 0 auto 8px;
+    }
+
+    .wf-cta-sub {
+      width: 180px;
+      height: 9px;
+      background: #ccc;
+      border-radius: 2px;
+      margin: 0 auto 14px;
+    }
+
+    .wf-cta-btn {
+      width: 110px;
+      height: 30px;
+      background: #999;
+      border-radius: 3px;
+      margin: 0 auto;
+    }
+
+    /* Footer */
+    .wf-footer {
+      background: #222;
+      padding: 20px;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 16px;
+    }
+
+    .wf-footer-col > div {
+      height: 8px;
+      background: #555;
+      border-radius: 2px;
+      margin-bottom: 6px;
+    }
+
+    .wf-footer-col > div:first-child {
+      background: #888;
+      width: 60%;
+      margin-bottom: 10px;
+    }
+
+    .wf-footer-bottom {
+      background: #1a1a1a;
+      padding: 10px 20px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .wf-footer-copy {
+      width: 160px;
+      height: 8px;
+      background: #444;
+      border-radius: 2px;
+    }
+
+    /* Service blocks */
+    .wf-service-block {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      align-items: center;
+      padding: 20px 0;
+      border-bottom: 1px solid #eee;
+    }
+
+    .wf-service-block.reverse {
+      direction: rtl;
+    }
+
+    .wf-service-block.reverse > * {
+      direction: ltr;
+    }
+
+    /* Form layout */
+    .wf-form-layout {
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: 24px;
+    }
+
+    .wf-form-info > div {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+
+    .wf-form-icon {
+      width: 20px;
+      height: 20px;
+      background: #ddd;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .wf-form-text > div {
+      height: 8px;
+      background: #ddd;
+      border-radius: 2px;
+      margin-bottom: 5px;
+    }
+
+    .wf-form-text > div:first-child {
+      width: 60%;
+      background: #ccc;
+    }
+
+    .wf-form > div {
+      height: 36px;
+      background: #f0f0f0;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+      margin-bottom: 10px;
+    }
+
+    .wf-form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+
+    .wf-form-row > div {
+      height: 36px;
+      background: #f0f0f0;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+    }
+
+    .wf-form-textarea {
+      height: 80px !important;
+    }
+
+    /* Location cards */
+    .wf-loc-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+
+    .wf-loc-card {
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      padding: 14px;
+    }
+
+    .wf-loc-title {
+      height: 12px;
+      width: 70%;
+      background: #bbb;
+      border-radius: 2px;
+      margin-bottom: 10px;
+      border-bottom: 2px solid #999;
+      padding-bottom: 8px;
+    }
+
+    .wf-loc-line {
+      height: 8px;
+      background: #e0e0e0;
+      border-radius: 2px;
+      margin-bottom: 5px;
+    }
+
+    .wf-map {
+      background: #e0e0e0;
+      height: 100px;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.65rem;
+      color: #888;
+      letter-spacing: 0.05em;
+    }
+
+    /* Team cards */
+    .wf-team-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+
+    .wf-team-card {
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      padding: 16px;
+      text-align: center;
+    }
+
+    .wf-avatar {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: #ccc;
+      margin: 0 auto 10px;
+    }
+
+    .wf-team-name {
+      height: 10px;
+      width: 70%;
+      background: #bbb;
+      border-radius: 2px;
+      margin: 0 auto 5px;
+    }
+
+    .wf-team-role {
+      height: 8px;
+      width: 50%;
+      background: #ddd;
+      border-radius: 2px;
+      margin: 0 auto;
+    }
+
+    /* Annotation labels */
+    .wf-annot {
+      font-size: 0.6rem;
+      color: #888;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      text-align: center;
+      margin-top: 4px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>WEDE PRINTS — Low-Fidelity Wireframes</h1>
+  <p class="doc-sub">Student: Deoget de Klerk &nbsp;|&nbsp; Web Development Fundamentals — Part 1 &nbsp;|&nbsp; Desktop Layout</p>
+
+  <!-- ════════════════════════════════════════════
+       PAGE 1: HOMEPAGE (index.html)
+  ════════════════════════════════════════════ -->
+  <div class="page-wireframe">
+    <div class="page-label">Page 1 — Homepage (index.html)</div>
+
+    <!-- Navbar -->
+    <div class="wf-navbar">
+      <div class="wf-logo"></div>
+      <div class="wf-nav-links">
+        <div class="wf-nav-link active"></div>
+        <div class="wf-nav-link"></div>
+        <div class="wf-nav-link"></div>
+        <div class="wf-nav-link"></div>
+        <div class="wf-nav-link"></div>
+      </div>
+    </div>
+    <p class="wf-annot">Sticky Navbar — Logo left, Nav links right (Home | About | Services | Enquiry | Contact)</p>
+
+    <!-- Hero -->
+    <div class="wf-hero">
+      <div class="wf-hero-text">
+        <div class="tag"></div>
+        <div class="h1a"></div>
+        <div class="h1b"></div>
+        <div class="desc"></div>
+        <div class="desc2"></div>
+        <div class="wf-hero-buttons">
+          <div class="wf-btn"></div>
+          <div class="wf-btn outline"></div>
+        </div>
+      </div>
+      <div class="wf-hero-img"><span class="wf-img-label">HERO IMAGE</span></div>
+    </div>
+    <p class="wf-annot">Hero — 2 column: Headline + CTA buttons left | Image right</p>
+
+    <!-- Service Cards -->
+    <div class="wf-section">
+      <div class="wf-section-label"></div>
+      <div class="wf-section-title"></div>
+      <div class="wf-section-sub"></div>
+      <div class="wf-cards">
+        <div class="wf-card"><div class="wf-card-icon"></div><div class="wf-card-title"></div><div class="wf-card-line"></div><div class="wf-card-line" style="width:80%"></div></div>
+        <div class="wf-card"><div class="wf-card-icon"></div><div class="wf-card-title"></div><div class="wf-card-line"></div><div class="wf-card-line" style="width:80%"></div></div>
+        <div class="wf-card"><div class="wf-card-icon"></div><div class="wf-card-title"></div><div class="wf-card-line"></div><div class="wf-card-line" style="width:80%"></div></div>
+        <div class="wf-card"><div class="wf-card-icon"></div><div class="wf-card-title"></div><div class="wf-card-line"></div><div class="wf-card-line" style="width:80%"></div></div>
+        <div class="wf-card"><div class="wf-card-icon"></div><div class="wf-card-title"></div><div class="wf-card-line"></div><div class="wf-card-line" style="width:80%"></div></div>
+        <div class="wf-card"><div class="wf-card-icon"></div><div class="wf-card-title"></div><div class="wf-card-line"></div><div class="wf-card-line" style="width:80%"></div></div>
+      </div>
+    </div>
+    <p class="wf-annot">Services — 3-column grid of 6 service cards</p>
+
+    <!-- About Strip -->
+    <div class="wf-section" style="background:#f8f8f8">
+      <div class="wf-two-col">
+        <div class="wf-image-block">IMAGE</div>
+        <div>
+          <div class="wf-section-label"></div>
+          <div class="wf-section-title"></div>
+          <div class="wf-text-lines">
+            <div style="width:100%"></div><div style="width:90%"></div><div style="width:95%"></div>
+          </div>
+          <div class="wf-stats">
+            <div><div class="wf-stat-num"></div><div class="wf-stat-lbl"></div></div>
+            <div><div class="wf-stat-num"></div><div class="wf-stat-lbl"></div></div>
+            <div><div class="wf-stat-num"></div><div class="wf-stat-lbl"></div></div>
+            <div><div class="wf-stat-num"></div><div class="wf-stat-lbl"></div></div>
+          </div>
+          <div class="wf-btn" style="margin-top:14px"></div>
+        </div>
+      </div>
+    </div>
+    <p class="wf-annot">About Strip — 2 column: Image left | Text + 4 stats + CTA right</p>
+
+    <!-- CTA Banner -->
+    <div class="wf-cta">
+      <div class="wf-cta-title"></div>
+      <div class="wf-cta-sub"></div>
+      <div class="wf-cta-btn"></div>
+    </div>
+    <p class="wf-annot">CTA Banner — Centred heading, subtext, button</p>
+
+    <!-- Footer -->
+    <div class="wf-footer">
+      <div class="wf-footer-col"><div></div><div></div><div></div><div style="width:80%"></div></div>
+      <div class="wf-footer-col"><div></div><div></div><div></div><div></div><div></div></div>
+      <div class="wf-footer-col"><div></div><div></div><div></div><div></div></div>
+    </div>
+    <div class="wf-footer-bottom"><div class="wf-footer-copy"></div></div>
+    <p class="wf-annot">Footer — 3 column: Brand | Quick Links | Contact Info</p>
+  </div>
+
+
+  <!-- ════════════════════════════════════════════
+       PAGE 2: ABOUT (about.html)
+  ════════════════════════════════════════════ -->
+  <div class="page-wireframe">
+    <div class="page-label">Page 2 — About Us (about.html)</div>
+
+    <div class="wf-navbar">
+      <div class="wf-logo"></div>
+      <div class="wf-nav-links">
+        <div class="wf-nav-link"></div>
+        <div class="wf-nav-link active"></div>
+        <div class="wf-nav-link"></div>
+        <div class="wf-nav-link"></div>
+        <div class="wf-nav-link"></div>
+      </div>
+    </div>
+
+    <div class="wf-page-hero">
+      <div class="wf-page-hero-title"></div>
+      <div class="wf-page-hero-sub"></div>
+    </div>
+    <p class="wf-annot">Page Hero — Dark background, centred title + subtitle</p>
+
+    <!-- Story -->
+    <div class="wf-section">
+      <div class="wf-two-col">
+        <div class="wf-image-block">IMAGE</div>
+        <div>
+          <div class="wf-section-label"></div>
+          <div class="wf-section-title"></div>
+          <div class="wf-text-lines">
+            <div style="width:100%"></div><div style="width:95%"></div>
+            <div style="width:90%"></div><div style="width:100%"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p class="wf-annot">Our Story — 2 column: Image left | Company history text right</p>
+
+    <!-- Mission & Vision -->
+    <div class="wf-section" style="background:#f8f8f8">
+      <div class="wf-section-label"></div>
+      <div class="wf-section-title"></div>
+      <div class="wf-cards-2col" style="margin-top:14px">
+        <div class="wf-card"><div class="wf-card-icon"></div><div class="wf-card-title"></div><div class="wf-card-line"></div><div class="wf-card-line" style="width:85%"></div></div>
+        <div class="wf-card"><div class="wf-card-icon"></div><div class="wf-card-title"></div><div class="wf-card-line"></div><div class="wf-card-line" style="width:85%"></div></div>
+      </div>
+    </div>
+    <p class="wf-annot">Mission & Vision — 2 equal cards side by side</p>
+
+    <!-- Team -->
+    <div class="wf-section">
+      <div class="wf-section-label"></div>
+      <div class="wf-section-title"></div>
+      <div class="wf-section-sub"></div>
+      <div class="wf-team-grid">
+        <div class="wf-team-card"><div class="wf-avatar"></div><div class="wf-team-name"></div><div class="wf-team-role"></div></div>
+        <div class="wf-team-card"><div class="wf-avatar"></div><div class="wf-team-name"></div><div class="wf-team-role"></div></div>
+        <div class="wf-team-card"><div class="wf-avatar"></div><div class="wf-team-name"></div><div class="wf-team-role"></div></div>
+      </div>
+    </div>
+    <p class="wf-annot">Team — 3 cards with avatar, name, role</p>
+
+    <div class="wf-cta"><div class="wf-cta-title"></div><div class="wf-cta-sub"></div><div class="wf-cta-btn"></div></div>
+    <div class="wf-footer">
+      <div class="wf-footer-col"><div></div><div></div><div></div></div>
+      <div class="wf-footer-col"><div></div><div></div><div></div></div>
+      <div class="wf-footer-col"><div></div><div></div><div></div></div>
+    </div>
+    <div class="wf-footer-bottom"><div class="wf-footer-copy"></div></div>
+  </div>
+
+
+  <!-- ════════════════════════════════════════════
+       PAGE 3: SERVICES (services.html)
+  ════════════════════════════════════════════ -->
+  <div class="page-wireframe">
+    <div class="page-label">Page 3 — Services (services.html)</div>
+
+    <div class="wf-navbar">
+      <div class="wf-logo"></div>
+      <div class="wf-nav-links">
+        <div class="wf-nav-link"></div>
+        <div class="wf-nav-link"></div>
+        <div class="wf-nav-link active"></div>
+        <div class="wf-nav-link"></div>
+        <div class="wf-nav-link"></div>
+      </div>
+    </div>
+
+    <div class="wf-page-hero">
+      <div class="wf-page-hero-title"></div>
+      <div class="wf-page-hero-sub"></div>
+    </div>
+
+    <div class="wf-section">
+      <!-- Service 1 -->
+      <div class="wf-service-block">
+        <div class="wf-image-block">IMAGE</div>
+        <div>
+          <div class="wf-section-label"></div>
+          <div class="wf-section-title"></div>
+          <div class="wf-text-lines"><div style="width:100%"></div><div style="width:90%"></div></div>
+          <div class="wf-btn" style="margin-top:10px;width:80px;height:20px;background:#ccc;border-radius:2px"></div>
+        </div>
+      </div>
+      <p class="wf-annot">Service 01 — Image left | Text + price tag right</p>
+
+      <!-- Service 2 (reversed) -->
+      <div class="wf-service-block reverse">
+        <div class="wf-image-block">IMAGE</div>
+        <div>
+          <div class="wf-section-label"></div>
+          <div class="wf-section-title"></div>
+          <div class="wf-text-lines"><div style="width:100%"></div><div style="width:90%"></div></div>
+          <div class="wf-btn" style="margin-top:10px;width:80px;height:20px;background:#ccc;border-radius:2px"></div>
+        </div>
+      </div>
+      <p class="wf-annot">Service 02 — Text left | Image right (alternating)</p>
+
+      <!-- Service 3 -->
+      <div class="wf-service-block">
+        <div class="wf-image-block">IMAGE</div>
+        <div>
+          <div class="wf-section-label"></div>
+          <div class="wf-section-title"></div>
+          <div class="wf-text-lines"><div style="width:100%"></div><div style="width:90%"></div></div>
+          <div class="wf-btn" style="margin-top:10px;width:80px;height:20px;background:#ccc;border-radius:2px"></div>
+        </div>
+      </div>
+      <p class="wf-annot">Service 03 — Image left | Text right</p>
+
+      <!-- Service 4 (reversed) -->
+      <div class="wf-service-block reverse" style="border-bottom:none">
+        <div class="wf-image-block">IMAGE</div>
+        <div>
+          <div class="wf-section-label"></div>
+          <div class="wf-section-title"></div>
+          <div class="wf-text-lines"><div style="width:100%"></div><div style="width:90%"></div></div>
+          <div class="wf-btn" style="margin-top:10px;width:80px;height:20px;background:#ccc;border-radius:2px"></div>
+        </div>
+      </div>
+      <p class="wf-annot">Service 04 — Text left | Image right (alternating)</p>
+    </div>
+
+    <div class="wf-cta"><div class="wf-cta-title"></div><div class="wf-cta-sub"></div><div class="wf-cta-btn"></div></div>
+    <div class="wf-footer">
+      <div class="wf-footer-col"><div></div><div></div><div></div></div>
+      <div class="wf-footer-col"><div></div><div></div><div></div></div>
+      <div class="wf-footer-col"><div></div><div></div><div></div></div>
+    </div>
+    <div class="wf-footer-bottom"><div class="wf-footer-copy"></div></div>
+  </div>
+
+
+  <!-- ════════════════════════════════════════════
+       PAGE 4: ENQUIRY (enquiry.html)
+  ════════════════════════════════════════════ -->
+  <div class="page-wireframe">
+    <div class="page-label">Page 4 — Enquiry / Quote Request (enquiry.html)</div>
+
+    <div class="wf-navbar">
+      <div class="wf-logo"></div>
+      <div class="wf-nav-links">
+        <div class="wf-nav-link"></div>
+        <div class="wf-nav-link"></div>
+        <div class="wf-nav-link"></div>
+        <div class="wf-nav-link active"></div>
+        <div class="wf-nav-link"></div>
+      </div>
+    </div>
+
+    <div class="wf-page-hero">
+      <div class="wf-page-hero-title"></div>
+      <div class="wf-page-hero-sub"></div>
+    </div>
+
+    <div class="wf-section">
+      <div class="wf-form-layout">
+
+        <!-- Left: process steps -->
+        <div class="wf-form-info">
+          <div class="wf-section-label"></div>
+          <div class="wf-section-title" style="margin-bottom:16px"></div>
+          <div>
+            <div class="wf-form-icon"></div>
+            <div class="wf-form-text"><div></div><div style="width:90%"></div></div>
+          </div>
+          <div>
+            <div class="wf-form-icon"></div>
+            <div class="wf-form-text"><div></div><div style="width:90%"></div></div>
+          </div>
+          <div>
+            <div class="wf-form-icon"></div>
+            <div class="wf-form-text"><div></div><div style="width:90%"></div></div>
+          </div>
+          <div>
+            <div class="wf-form-icon"></div>
+            <div class="wf-form-text"><div></div><div style="width:90%"></div></div>
+          </div>
+        </div>
+
+        <!-- Right: form -->
+        <div class="wf-form">
+          <div class="wf-form-row">
+            <div></div>
+            <div></div>
+          </div>
+          <div class="wf-form-row">
+            <div></div>
+            <div></div>
+          </div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div class="wf-form-textarea"></div>
+          <div></div>
+          <div class="wf-btn" style="width:120px"></div>
+        </div>
+
+      </div>
+    </div>
+    <p class="wf-annot">Enquiry — 2 column: 4-step process panel left | Quote request form right</p>
+
+    <div class="wf-footer">
+      <div class="wf-footer-col"><div></div><div></div><div></div></div>
+      <div class="wf-footer-col"><div></div><div></div><div></div></div>
+      <div class="wf-footer-col"><div></div><div></div><div></div></div>
+    </div>
+    <div class="wf-footer-bottom"><div class="wf-footer-copy"></div></div>
+  </div>
+
+
+  <!-- ════════════════════════════════════════════
+       PAGE 5: CONTACT (contact.html)
+  ════════════════════════════════════════════ -->
+  <div class="page-wireframe">
+    <div class="page-label">Page 5 — Contact (contact.html)</div>
+
+    <div class="wf-navbar">
+      <div class="wf-logo"></div>
+      <div class="wf-nav-links">
+        <div class="wf-nav-link"></div>
+        <div class="wf-nav-link"></div>
+        <div class="wf-nav-link"></div>
+        <div class="wf-nav-link"></div>
+        <div class="wf-nav-link active"></div>
+      </div>
+    </div>
+
+    <div class="wf-page-hero">
+      <div class="wf-page-hero-title"></div>
+      <div class="wf-page-hero-sub"></div>
+    </div>
+
+    <!-- Locations -->
+    <div class="wf-section">
+      <div class="wf-section-label"></div>
+      <div class="wf-section-title"></div>
+      <div class="wf-section-sub"></div>
+
+      <div class="wf-loc-grid">
+        <div class="wf-loc-card">
+          <div class="wf-loc-title"></div>
+          <div class="wf-loc-line"></div>
+          <div class="wf-loc-line" style="width:80%"></div>
+          <div class="wf-loc-line" style="width:70%"></div>
+          <div class="wf-loc-line" style="width:85%"></div>
+        </div>
+        <div class="wf-loc-card">
+          <div class="wf-loc-title"></div>
+          <div class="wf-loc-line"></div>
+          <div class="wf-loc-line" style="width:80%"></div>
+          <div class="wf-loc-line" style="width:70%"></div>
+          <div class="wf-loc-line" style="width:85%"></div>
+        </div>
+      </div>
+      <p class="wf-annot">Two location cards — Branch 1 (CBD) | Branch 2 (Pretoria East)</p>
+
+      <div class="wf-loc-grid">
+        <div class="wf-map">MAP PLACEHOLDER — BRANCH 1</div>
+        <div class="wf-map">MAP PLACEHOLDER — BRANCH 2</div>
+      </div>
+      <p class="wf-annot">Two map placeholders — one per branch</p>
+    </div>
+
+    <!-- Contact Form -->
+    <div class="wf-section" style="background:#f8f8f8">
+      <div class="wf-form-layout">
+
+        <div class="wf-form-info">
+          <div class="wf-section-label"></div>
+          <div class="wf-section-title" style="margin-bottom:14px"></div>
+          <div>
+            <div class="wf-form-icon"></div>
+            <div class="wf-form-text"><div></div><div style="width:80%"></div></div>
+          </div>
+          <div>
+            <div class="wf-form-icon"></div>
+            <div class="wf-form-text"><div></div><div style="width:80%"></div></div>
+          </div>
+          <div>
+            <div class="wf-form-icon"></div>
+            <div class="wf-form-text"><div></div><div style="width:80%"></div></div>
+          </div>
+          <div style="height:48px;background:#e8e8e8;border-radius:4px;margin-top:8px"></div>
+        </div>
+
+        <div class="wf-form">
+          <div class="wf-form-row"><div></div><div></div></div>
+          <div></div>
+          <div></div>
+          <div class="wf-form-textarea"></div>
+          <div class="wf-btn" style="width:120px"></div>
+        </div>
+
+      </div>
+    </div>
+    <p class="wf-annot">Contact Form — 2 column: Contact info + note left | General contact form right</p>
+
+    <div class="wf-footer">
+      <div class="wf-footer-col"><div></div><div></div><div></div></div>
+      <div class="wf-footer-col"><div></div><div></div><div></div></div>
+      <div class="wf-footer-col"><div></div><div></div><div></div></div>
+    </div>
+    <div class="wf-footer-bottom"><div class="wf-footer-copy"></div></div>
+  </div>
+
+</body>
+</html>
