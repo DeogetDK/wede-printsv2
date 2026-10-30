@@ -104,14 +104,17 @@ WEDE-PRINTS/
 ---
 
 ## Changelog
-| Version | Date | Description |
-|---|---|---|
-| v1.0 | 2025 | Initial project structure and all files added |
-| v1.1 | 2025 | README.md completed with full project details |
-| v1.2 | 2025 | Added low-fidelity wireframes for all 5 pages following Part 1 feedback |
-| v1.3 | 2025 | Added tablet breakpoint at 1024px to style.css |
-| v1.4 | 2025 | Added srcset and sizes attributes to all images for responsiveness |
-| v1.5 | 2025 | Tested responsive design and added screenshot evidence for desktop, tablet and mobile |
+
+| Version | Date | Files Changed | Description |
+|---|---|---|---|
+| v1.0 | 08/08/26 | All files | Part 1: Created the initial project structure (css/, js/, images/ folders) and five HTML pages (index, about, services, enquiry, contact), each with a header, nav, main and footer. Linked all pages through a consistent navigation menu and added code comments. |
+| v1.1 | 08/08/26 | README.md | Part 1: Completed the README with project overview, goals and KPIs, features, sitemap, folder structure, timeline and references. |
+| v1.2 | 08/08/26 | wireframes/wireframes.html | Part 1 feedback fix: Added low-fidelity wireframes for all 5 pages, showing the layout and information hierarchy of the navbar, hero, content sections, forms and footer. The wireframes were missing from the Part 1 submission. |
+| v1.3 | 10/09/26 | css/style.css | Part 2: Added a tablet breakpoint (max-width: 1024px) that changes the service cards and team grid to 2 columns, reduces the hero heading size, and adjusts the footer, service block and form spacing. This sits between the desktop styles and the existing 768px mobile breakpoint. |
+| v1.4 | 10/09/26 | index.html, about.html, services.html | Part 2: Added srcset and sizes attributes to all img tags so the browser can choose an image size based on screen width, improving loading on smaller devices. |
+| v1.5 | 10/09/26 | screenshots/ | Part 2: Tested the site with Chrome DevTools device mode at desktop, tablet and mobile sizes, and added screenshot evidence. |
+| v1.6 | 10/09/26 | README.md | Part 2: Added the Part 2 section, new changelog entries and updated references. Moved the project into the wedeprintsv2 repository. |
+| v1.7 | 30/10/26 | README.md | Part 3 feedback fix: Rewrote the changelog with a detailed entry for every change (version, date, files affected and description), because Part 2 feedback noted it had too few updates. |
 
 ---
 

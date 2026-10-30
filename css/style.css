@@ -627,38 +627,6 @@ p {
 }
 
 /* ---------- Responsive ---------- */
-@media (max-width: 768px) {
-  h1 { font-size: 2rem; }
-  h2 { font-size: 1.5rem; }
-
-  .hero__inner,
-  .about-strip,
-  .service-block,
-  .form-section,
-  .locations-grid,
-  .footer__inner {
-    grid-template-columns: 1fr;
-  }
-
-  .cards,
-  .team-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .hero__image { display: none; }
-
-  .service-block--reverse {
-    direction: ltr;
-  }
-
-  .navbar__links {
-    gap: 16px;
-  }
-
-  .form__row {
-    grid-template-columns: 1fr;
-  }
-}
 @media (max-width: 1024px) {
   .cards {
     grid-template-columns: repeat(2, 1fr);
