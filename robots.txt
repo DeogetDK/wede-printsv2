@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://DeogeDK.github.io/wedeprintsv2/sitemap.xml
