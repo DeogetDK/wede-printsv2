@@ -940,4 +940,22 @@ p {
 
 .form-result li {
   margin-bottom: 6px;
+}/* ---------- Contact email preview ---------- */
+.email-preview {
+  background-color: #ffffff;
+  border: 1px solid #86efac;
+  border-radius: 6px;
+  padding: 16px;
+  margin: 16px 0;
+  font-family: Consolas, monospace;
+  font-size: 0.85rem;
+  color: #1a1a1a;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.form-result__actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
 }
