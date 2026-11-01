@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://DeogeDK.github.io/wedeprintsv2/sitemap.xml
+Sitemap: https://st10526431-wede-prints-final.netlify.app/sitemap.xml
