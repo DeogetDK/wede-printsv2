@@ -1,0 +1,12 @@
+[
+  { "id": 1,  "name": "A5 Flyers",             "category": "Commercial Printing", "price": 150, "unit": "per 100",  "turnaround": 3, "description": "Full-colour double-sided A5 flyers on 135gsm gloss paper, ideal for events and promotions." },
+  { "id": 2,  "name": "A4 Tri-fold Brochures", "category": "Commercial Printing", "price": 450, "unit": "per 100",  "turnaround": 4, "description": "Professionally folded brochures to showcase your products and services." },
+  { "id": 3,  "name": "A2 Posters",            "category": "Commercial Printing", "price": 85,  "unit": "each",     "turnaround": 2, "description": "Large, vibrant posters on quality paper for shops, schools and events." },
+  { "id": 4,  "name": "Custom T-Shirt",        "category": "Custom T-Shirts",     "price": 120, "unit": "each",     "turnaround": 3, "description": "Single custom-printed T-shirt using heat transfer or direct-to-garment printing." },
+  { "id": 5,  "name": "Team T-Shirts (10+)",   "category": "Custom T-Shirts",     "price": 99,  "unit": "each",     "turnaround": 5, "description": "Bulk T-shirt printing for teams, schools and events with a discounted price per shirt." },
+  { "id": 6,  "name": "Pull-up Banner",        "category": "Banners & Signage",   "price": 650, "unit": "each",     "turnaround": 3, "description": "Stand-up banner with carry bag, perfect for exhibitions and shopfronts." },
+  { "id": 7,  "name": "Vinyl Banner (2m x 1m)","category": "Banners & Signage",   "price": 350, "unit": "each",     "turnaround": 2, "description": "Weatherproof outdoor vinyl banner with eyelets and hemmed edges." },
+  { "id": 8,  "name": "Business Cards",        "category": "Business Stationery", "price": 200, "unit": "per 250",  "turnaround": 2, "description": "Double-sided business cards with a choice of matte, gloss or silk lamination." },
+  { "id": 9,  "name": "Letterheads",           "category": "Business Stationery", "price": 280, "unit": "per 100",  "turnaround": 3, "description": "Branded A4 letterheads for professional correspondence." },
+  { "id": 10, "name": "Branded Envelopes",     "category": "Business Stationery", "price": 320, "unit": "per 100",  "turnaround": 4, "description": "DL envelopes printed with your logo and return address." }
+]
